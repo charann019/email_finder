@@ -1,0 +1,1 @@
+Error executing 'emailfinder -d superu.ai': Command 'emailfinder -d superu.ai' returned non-zero exit status 1.

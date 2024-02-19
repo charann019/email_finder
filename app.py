@@ -1,0 +1,23 @@
+import subprocess
+import time
+
+# List of domains
+domains = ['gpts.webpilot.ai', 'cylect.io', 'plugin.wegpt.ai', 'wale.ai', 'consensus.app', 'zestify.info', 'mojju.co', 'glibatree.com', 'nnulu.com', 'safurai.com', 'sheknowsseo.co', 'skillleap.ai', 'daichikonno.jp', 'gptmakerspace.com', 'masterinterview.ai', 'tinybox.agency', 'gpts.works', 'gpt.mrbro.dev', 'stockcode.ai', 'tempi, Inc.', 'agilayer.com', 'videoinsights.ai', 'uxmonday.com', 'dragonjar.org', 'jacobmcmillen.com', 'veed.io', 'plagiarism-remover.com', 'nicoleleffer.com', 'sider.ai', 'uniart.io', 'kazimir.ai', 'capcut.com', 'imaginethis.ai', 'aiprompto.com', 'generative-journey.com', 'doomgpt.com', 'minasaad.online', 'ocr.chat', 'xenowhiz.com', 'eesel.ai', 'pulsr.co.uk', 'gptpersonalize.com', 'mjproductions.tech', 'promptspellsmith.com', 'gptsdex.com', 'starwatcher.io', 'goat-labs.com', 'titantrades.com', 'webcafesoftware.com', 'explore-gpts.com', 'lysonober.com', 'musicradiocreative.com', 'sironix.app', 'welltory.com', 'danielmiessler.com', 'theintelligo.com', 'mansgreback.com', 'docs.askthecode.ai', 'headshotpro.com', 'H. Schols', 'every.to', 'gptopper.com', 'embedai.thesamur.ai', 'vincentferreira.com', 'sign-holders.co.uk', 'gptjp.net', 'camel-ai.org', 'karenxcheng.com', 'dcts.top', 'Nueva, Romina Kavcic s.p.', 'gillingh.am', 'oldpicrestore.com', 'sevenvolcano.xyz', 'wertu.ai', 'starterbuild.com', 'scispace.com', 'warmersun.com', 'awesomegpts.ai', 'somethingtechie.co', 'hix.ai', 'gptavern.mindgoblinstudios.com', 'studyx.ai', 'coverlettercopilot.ai', 'bardiashahrestani.info', 'duotify.com', 'gptmegastore.com', 'pyxl.ai', 'editgpt.app', 'askyourpdf.com', 'gpts.tapgpts.com', 'digitiz.fr', 'bypassgpt.ai', 'priyankar.me', 'brandwise.ge', 'videogpt.qingyu.club', 'kayak.com', 'kt-life.net', 'invesgpt.com', 'essaypro.com', 'jason.today', 'chatprd.ai', 'adamludolph.com', 'whimsical.com', 'S. J', 'lucid.co', 'orainti.com', 'wpcocktail.com', 'tr1ppy.com', 'ibuyprompts.com', 'tts11labs.com', 'promptish.co', 'tappstr.com', 'pyroprompts.com', 'rsugrafx.com', 'Josh Brent N. Villocido', 'discover-gpts.com', 'navidre.com', 'yanawelinder.org', 'romekasolutions.com', 'dietniai.com', 'orbixai.com', 'manu.vision', 'checkfu.com', 'zhongwengpt.co', 'bitsens.com', 'authoredintelligence.com', 'incomestreamsurfers.com', 'udm.ai', 'artificial-nightmares.com', 'collaborativedynamics.net', 'f1.gg', 'darius.design', 'octaneai.com', 'gpt.tempi.co.jp', 'medisearch.io', 'jorgejofre.es', 'seo.ai', 'threatintel.bot', 'godofprompt.ai', 'bcmsj.com', 'jandthebots.com', 'nigzu.com', 'tepu.xyz', 'aisecondbrain.io', 'Vidline Inc.', 'popularaitools.ai', 'gendojo.ai', 'aidocmaker.com', 'Keymate AI Inc.', 'aiundetect.com', 'zhile.io', 'ratcgpts.com', 'IGS, Inc.', 'mindrenders.com', 'puzzle.today', 'koschklinkperformance.de', 'gptfinder.co', 'gpthacks.com', 'promptboom.com', 'visla.us', 'textero.ai', 'tevfik.xyz', 'gymstreak.com', 'inacionale.com', 'bargpt.app', 'startuptechlaw.com', 'epiphanyengine.ai', 'canva.com', '야무진행동 https://ai.yact.ai', 'thedailypanel.com', 'intellipsy.com.pl', '6hive.ee', 'wesureai.com', 'dgb.lol', 'zapier.com', 'slidesgpt.com', 'cartbuddygpt.com', 'giseros.com', 'aimediadesign.net', 'prismplane.jp', 'traccar.org', 'millcitycc.com', 'levels.io', 'awesomegpts.vip', 'hellotars.com', 'smartprompt.xyz', 'neural.love', 'llmimagineers.com', 'gptsone.gapier.net', 'domore.ai', 'myaiforce.com', 'scholarai.io', 'Simple App Holdings Inc.', 'aihomework.fun', 'activesolution.se', 'oneusefulthing.org', 'flowbite.com', 'runway.com', 'myaidrive.com', 'juliangoldie.com', 'orrenprunckun.com', 'pyraai.com', 'gpt.wolfram.com', 'aiforbusinesshq.com', 'allwiretech.com', 'richcatai.com', 'muhanli.com', 'aimoneygen.com', 'bingimagecreatorai.com', 'mizine.de', 'adzviser.com', 'ailemonacademy.com', 'helpful.dev', 'bibigpt.co', 'jobright.ai', 'ethangpts.com', 'featuredgpts.com', 'bestaiprompts.art', 'davideai.dev', 'xtxian.com', 'gptinf.com', 'corley.ai', 'themarketinghustle.com', 'corbinvking.com', 'mixerbox.com', 'guliucang.com', 'brettbauman.me', 'onespotapps.com', 'sablevista.com', 'logogpts.cn', 'heresmy.eth', 'chatgptbuddy.com']
+
+
+# Function to run emailfinder for a given domain and wait
+def run_email_finder(domain):
+    command = f"emailfinder -d {domain}"
+    try:
+        print(f"Processing domain: {domain}")
+        subprocess.run(command, shell=True, check=True)
+        # Wait for 5-10 seconds after processing each domain
+        time.sleep(5)
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing '{command}': {e}")
+
+# Iterate over the domains and run them one by one
+for domain in domains:
+    run_email_finder(domain)
+
+print("All domains processed.")

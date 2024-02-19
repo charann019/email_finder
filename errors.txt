@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts\emailfinder.exe\__main__.py", line 7, in <module>
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\emailfinder\cli.py", line 20, in main
+    show_banner()
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\emailfinder\utils\banner.py", line 17, in show_banner
+    print_formatted_text(f"{banner}")
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\prompt_toolkit\shortcuts\utils.py", line 111, in print_formatted_text
+    output = get_app_session().output
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\prompt_toolkit\application\current.py", line 67, in output
+    self._output = create_output()
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\prompt_toolkit\output\defaults.py", line 87, in create_output
+    return Win32Output(stdout, default_color_depth=color_depth_from_env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\prompt_toolkit\output\win32.py", line 115, in __init__
+    info = self.get_win32_screen_buffer_info()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Charan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\prompt_toolkit\output\win32.py", line 219, in get_win32_screen_buffer_info
+    raise NoConsoleScreenBufferError
+prompt_toolkit.output.win32.NoConsoleScreenBufferError: No Windows console found. Are you running cmd.exe?
